@@ -1,0 +1,37 @@
+body {
+  color: darkblue;
+  font-family: consolas;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.title {
+	margin-left: 2rem;
+}
+
+.card-container {
+	display: flex;
+	list-style-type: none;
+	padding: 0rem;
+}
+
+.card {
+	background-image: radial-gradient(circle at bottom right, white, lightblue);
+	margin: 1rem;
+	padding: 1rem;
+	padding-bottom: 0.5rem;
+}
+
+.card-title {
+	font-size: 1.5rem;
+}
+
+/* Make a one column-layout instead of three-column layout */
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column;
+  }
+}
