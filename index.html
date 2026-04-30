@@ -14,8 +14,9 @@
 			<span id="address">contact</span>
 			<span class="icon">⿻</span>
 		</a>
-		<!-- <button class="right" onclick="togglePopup()"><span class="icon">✉</span> contact</button> -->
 	</h1>
+	<span id="email-copied-info">✔ email copied to clipboard!</span>
+	
 	<ul class="card-container">
 		<li class="card">
 			<a href="https://github.com/yannprada/n-cube">
@@ -42,7 +43,9 @@
 		document.getElementById("address").textContent = email;
 		document.getElementById("contact").onclick = function() {
 			navigator.clipboard.writeText(email);
-			alert("email copied to clipboard!");
+			const email_copied_info = document.getElementById("email-copied-info");
+			email_copied_info.classList.add('show');
+			setTimeout(() => email_copied_info.classList.remove('show'), 3000);
 		};
     </script>
 </body>

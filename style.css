@@ -72,3 +72,14 @@ a {
     flex-direction: column;
   }
 }
+
+#email-copied-info {
+	display: none;
+	position: absolute;
+	top: 4rem;
+	right: 2rem;
+}
+
+#email-copied-info.show {
+	display: flex;
+}
