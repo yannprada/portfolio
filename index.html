@@ -10,9 +10,8 @@
 <body>
     <h1 class="title">
 		<span>Yann Prada - developer</span>
-		<a class="right" href="contact.html"><span class="icon">✉</span> contact</a>
+		<button class="right" onclick="togglePopup()"><span class="icon">✉</span> contact</button>
 	</h1>
-	
 	<ul class="card-container">
 		<li class="card">
 			<a href="https://github.com/yannprada/n-cube">
@@ -33,5 +32,40 @@
 			</a>
 		</li>
 	</ul>
+	
+	<div id="popupOverlay" class="overlay-container">
+        <div class="popup-box">	
+			<form id="contact-form" method="POST" action="https://formspree.io/f/{your-id}">
+				<label>
+					Name
+					<input type="text" name="name" required>
+				</label>
+
+				<label>
+					Email
+					<input type="email" name="_replyto" required>
+				</label>
+
+				<label>
+					Message
+					<textarea name="message" rows="6" required></textarea>
+				</label>
+
+				<!-- optional: add a redirect after successful submit -->
+				<input type="hidden" name="_next" value="/thanks.html">
+
+				<button type="submit">Send</button>
+
+				<div id="form-status" aria-live="polite" style="margin-top:.5rem"></div>
+			</form>
+		</div>
+	</div>
+
+    <script>
+        function togglePopup() {
+            const overlay = document.getElementById('popupOverlay');
+            overlay.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
