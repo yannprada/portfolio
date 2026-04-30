@@ -10,7 +10,11 @@
 <body>
     <h1 class="title">
 		<span>Yann Prada - developer</span>
-		<button class="right" onclick="togglePopup()"><span class="icon">✉</span> contact</button>
+		<a class="right" id="contact">
+			<span id="address">contact</span>
+			<span class="icon">⿻</span>
+		</a>
+		<!-- <button class="right" onclick="togglePopup()"><span class="icon">✉</span> contact</button> -->
 	</h1>
 	<ul class="card-container">
 		<li class="card">
@@ -33,67 +37,13 @@
 		</li>
 	</ul>
 	
-	<div id="popupOverlay" class="overlay-container show">
-        <div class="popup-box">	
-			<form id="contact-form" method="POST" action="https://formspree.io/f/{your-id}">
-				<label>
-					Name
-					<input type="text" name="name" required>
-				</label>
-
-				<label>
-					Email
-					<input type="email" name="_replyto" required>
-				</label>
-
-				<label>
-					Message
-					<textarea name="message" rows="6" required></textarea>
-				</label>
-
-				<!-- optional: add a redirect after successful submit -->
-				<input type="hidden" name="_next" value="/thanks.html">
-
-				<div class="form-button-container">
-					<button class="btn-close-popup" onclick="togglePopup()">Cancel</button>
-					<button class="btn-submit" type="submit">Send</button>
-				</div>
-				
-				<div id="form-status" aria-live="polite" style="margin-top:.5rem"></div>
-			</form>
-		</div>
-	</div>
-
-    <script>
-        function togglePopup() {
-            const overlay = document.getElementById('popupOverlay');
-            overlay.classList.toggle('show');
-        }
-		
-		document.getElementById('contact-form').addEventListener('submit', async function(e) {
-			e.preventDefault();
-			const form = e.currentTarget;
-			const status = document.getElementById('form-status');
-			status.textContent = 'Sending...';
-
-			const data = new FormData(form);
-			try {
-				const res = await fetch(form.action, {
-					method: form.method,
-					headers: { 'Accept': 'application/json' },
-					body: data
-				});
-				if (res.ok) {
-					status.textContent = 'Thanks — message sent!';
-					form.reset();
-				} else {
-					const json = await res.json();
-					status.textContent = json.error || 'Error sending message.';
-				}
-			} catch (err) {
-				status.textContent = 'Network error. Try again later.';
-			}
-		});
+    <script>		
+		const email = atob("cHJhZGF5cm9sLnlhbm5pY2tAZ21haWwuY29t");
+		document.getElementById("address").textContent = email;
+		document.getElementById("contact").onclick = function() {
+			navigator.clipboard.writeText(email);
+			alert("email copied to clipboard!");
+		};
     </script>
 </body>
 </html>
