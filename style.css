@@ -19,6 +19,13 @@ a {
 .title .right {
 	font-size: 1.5rem;
 	transition: transform .2s;
+	background-color: transparent;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .title .right .icon {
@@ -83,17 +90,69 @@ a {
 }
 
 .popup-box {
-	background: #fff;
-	padding: 24px;
-	border-radius: 12px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-	width: 320px;
+	background: #731;
+	color: #ccc;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
+	width: 30rem;
 	text-align: center;
 	opacity: 0;
 	transform: scale(0.8);
 	animation: fadeInUp 0.5s ease-out forwards;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form label {
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+	text-align: left;
+}
+
+form input, form textarea {
+	padding: 1rem;
+	margin: 0.5rem 0 1rem 0;
+	background-color: rgba(255, 255, 255, 0.75);
+	color: #731;
+	border: 0.1rem solid #731;
+	border-radius: 0.5rem;
+	font-size: 1.2rem;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form-button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+form button {
+	height: 100%;
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1.2rem;
+	color: #ccc;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+	width: 45%;
+}
+
+.btn-submit {
+	background-color: #3a3;
+}
+
+.btn-close-popup {
+	background-color: #f31;
+}
+
+form button:hover {
+	transform: scale(1.15);
+}
 
 /* Keyframes for fadeInUp animation */
 @keyframes fadeInUp {

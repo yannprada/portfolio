@@ -33,7 +33,7 @@
 		</li>
 	</ul>
 	
-	<div id="popupOverlay" class="overlay-container">
+	<div id="popupOverlay" class="overlay-container show">
         <div class="popup-box">	
 			<form id="contact-form" method="POST" action="https://formspree.io/f/{your-id}">
 				<label>
@@ -54,8 +54,11 @@
 				<!-- optional: add a redirect after successful submit -->
 				<input type="hidden" name="_next" value="/thanks.html">
 
-				<button type="submit">Send</button>
-
+				<div class="form-button-container">
+					<button class="btn-close-popup" onclick="togglePopup()">Cancel</button>
+					<button class="btn-submit" type="submit">Send</button>
+				</div>
+				
 				<div id="form-status" aria-live="polite" style="margin-top:.5rem"></div>
 			</form>
 		</div>
